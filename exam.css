@@ -1,0 +1,17 @@
+body, html {
+    margin: 0;
+}
+
+#bar-chart {
+    text-align: center;
+}
+
+#title {
+    font-size: 30px;
+    color: #dd4814;
+}
+
+#tooltip {
+    font-size: 20px;
+    color: #5e0080;
+}
