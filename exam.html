@@ -38,11 +38,17 @@
                 .attr('class', 'bar')
                 .on('mouseover', function (event, d) {
                     d3.select(this).attr('fill', 'cyan');
-                    tooltip.style('display', 'block').attr('data-date', d[0]).text(d[0] + ', $' + d[1] + ' Billion');
+                    tooltip.style('display', 'block')
+                        .attr('data-date', d[0])
+                        // .style("transform", "translate(" + (xScale(convertStringToDate(d[0])) - (w - 2 * padding) / 2 + 20) + "px,-150px)")
+                        .html(d[0] + '<br> $' + d[1] + ' B')
                 })
                 .on('mouseout', function () {
                     d3.select(this).attr('fill', '#5e0080')
-                    tooltip.style('display', 'none').text('');
+                    tooltip.style('display', 'none')
+                        .attr('data-date', '')
+                        // .style("transform", "translate(0,0)")
+                        .text('')
                 });
             svg.append("g")
                 .attr("transform", "translate(0," + (h - padding) + ")")
@@ -54,4 +60,4 @@
                 .call(yAxis);
         })
 </script>
-<!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
