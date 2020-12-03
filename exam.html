@@ -15,7 +15,7 @@
             const tooltip = d3.select('#bar-chart').append('div').attr('id', 'tooltip').attr('data-date', '');
             const xScale = d3.scaleLinear().domain([1947, 2015.75]).range([padding, w - padding]);
             const yScale = d3.scaleLinear().domain([0, d3.max(dataset, d => d[1])]).range([h - padding, padding]);
-            const xAxis = d3.axisBottom(xScale);
+            const xAxis = d3.axisBottom(xScale).tickFormat(d3.format(''));
             const yAxis = d3.axisLeft(yScale);
 
             const convertStringToDate = (str) => {
