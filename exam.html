@@ -1,7 +1,9 @@
 <script src="https://d3js.org/d3.v6.min.js"></script>
 <link rel="stylesheet" href="exam.css">
 <div id="bar-chart">
-    <div id="title">United States GDP <br>(1947-2015)</div>
+    <div id="tooltip"></div>
+    <div id="title">United States GDP</div>
+    <div id="description">(1947-2015)</div>
 </div>
 <script>
     fetch('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json')
@@ -12,7 +14,7 @@
             const h = 500;
             const padding = 50;
             const svg = d3.select('#bar-chart').append('svg').style('width', w).style('height', h);
-            const tooltip = d3.select('#bar-chart').append('div').attr('id', 'tooltip').attr('data-date', '');
+            const tooltip = d3.select('#tooltip').attr('data-date', '').style('opacity', 0);
             const xScale = d3.scaleLinear().domain([1947, 2015.75]).range([padding, w - padding]);
             const yScale = d3.scaleLinear().domain([0, d3.max(dataset, d => d[1])]).range([h - padding, padding]);
             const xAxis = d3.axisBottom(xScale).tickFormat(d3.format(''));
@@ -38,17 +40,19 @@
                 .attr('class', 'bar')
                 .on('mouseover', function (event, d) {
                     d3.select(this).attr('fill', 'cyan');
-                    tooltip.style('display', 'block')
+                    tooltip.style('opacity', 1)
                         .attr('data-date', d[0])
-                        // .style("transform", "translate(" + (xScale(convertStringToDate(d[0])) - (w - 2 * padding) / 2 + 20) + "px,-150px)")
                         .html(d[0] + '<br> $' + d[1] + ' B')
+                        .style('left', (event.pageX + 20) + 'px')
+                        .style('top', event.pageY + 'px')
                 })
                 .on('mouseout', function () {
                     d3.select(this).attr('fill', '#5e0080')
-                    tooltip.style('display', 'none')
+                    tooltip.style('opacity', 0)
                         .attr('data-date', '')
-                        // .style("transform", "translate(0,0)")
                         .text('')
+                        .style('left', '0px')
+                        .style('top', '0px')
                 });
             svg.append("g")
                 .attr("transform", "translate(0," + (h - padding) + ")")

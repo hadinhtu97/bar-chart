@@ -1,5 +1,6 @@
 body, html {
     margin: 0;
+    font-family: monospace;
 }
 
 #bar-chart {
@@ -11,15 +12,26 @@ body, html {
     color: #dd4814;
 }
 
-#tooltip {
+#description {
     font-size: 20px;
-    color: #dd4814;
+    color: #5e0080
 }
 
-#x-axis path, #x-axis line, #x-axis text {
+#x-axis path, #x-axis line {
+    color: #5e0080
+}
+
+#y-axis path, #y-axis line {
+    color: #5e0080
+}
+
+#x-axis text, #y-axis text {
     color: #dd4814
 }
 
-#y-axis path, #y-axis line, #y-axis text {
-    color: #dd4814
+#tooltip {
+    position: absolute;
+    text-align: center;
+    background: #dd4814;
+    color: cyan;
 }
