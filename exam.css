@@ -15,3 +15,11 @@ body, html {
     font-size: 20px;
     color: #dd4814;
 }
+
+#x-axis path, #x-axis line, #x-axis text {
+    color: #dd4814
+}
+
+#y-axis path, #y-axis line, #y-axis text {
+    color: #dd4814
+}
