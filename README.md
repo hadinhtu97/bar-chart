@@ -17,3 +17,6 @@ Display data in a bar graph
 11. The data-gdp attribute and its corresponding bar element should align with the corresponding value on the y-axis.
 12. I can mouse over an area and see a tooltip with a corresponding `id="tooltip"` which displays more information about the area.
 13. My tooltip should have a data-date property that corresponds to the data-date of the active area.
+
+### Demo
+[Link Demo](https://codepen.io/hadinhtu97/full/KKgdgey)
